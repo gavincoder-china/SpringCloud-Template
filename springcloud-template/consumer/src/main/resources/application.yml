@@ -1,0 +1,34 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: consumer
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  activemq:
+    broker-url: tcp://106.15.90.2:61616
+    user: admin
+    password: admin
+    packages:
+      trust-all: true
+
+#注册中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+#熔断
+feign:
+  hystrix:
+    enabled: true
+
+
+
+#负载均衡
+provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+
