@@ -1,12 +1,13 @@
 package com.template.consumer.annotationCustom.method;
 
 
+
 import com.alibaba.fastjson.JSONObject;
-import com.gavin.web.contants.CommonContants;
-import com.gavin.web.result.ReturnResultContants;
-import com.gavin.web.result.ReturnResultUtils;
-import com.gavin.web.util.RedisUtil;
-import com.gavin.web.vo.UserVo;
+import com.template.common.contant.CommonContants;
+import com.template.common.result.ReturnResultContants;
+import com.template.common.result.ReturnResultUtils;
+import com.template.common.util.RedisUtil;
+import com.template.consumer.annotationCustom.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.method.HandlerMethod;
