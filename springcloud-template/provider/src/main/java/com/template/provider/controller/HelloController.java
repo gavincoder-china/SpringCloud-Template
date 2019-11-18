@@ -28,6 +28,9 @@ public class HelloController {
     @GetMapping(value = "/sayHello")
     public String sayHello() {
 
+        StringBuffer stringBuffer = new StringBuffer();
+
+
         return helloService.sayHello();
     }
 }

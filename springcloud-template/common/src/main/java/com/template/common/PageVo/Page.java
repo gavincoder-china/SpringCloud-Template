@@ -2,6 +2,7 @@ package com.template.common.PageVo;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -16,25 +17,25 @@ import java.util.List;
  * @description:
  ************************************************************/
 @Data
-public class Page<T> {
+public class Page<T> implements Serializable{
     
     /**
      * 当前页码,起始页
      */
-    private int startPage = 1;
+    private Integer startPage = 1;
     /**
      * 每页条数
      */
-    private int pageSize = 5;
+    private Integer pageSize = 5;
     /**
      * 前一页
      */
-    private int previousPage;
+    private Integer previousPage;
 
     /**
      * 后一页
      */
-    private int nextPage;
+    private Integer nextPage;
 
     /**
      * 总页数
@@ -44,7 +45,7 @@ public class Page<T> {
     /**
      * 总记录数
      */
-    private int totalRecord;
+    private Integer totalRecord;
 
     /**
      * 保存查询的结果集合
@@ -55,7 +56,7 @@ public class Page<T> {
     /**
      * 数据库偏移量  limit offset,pageSize
      */
-    public int getLimitOffset() {
+    public Integer getLimitOffset() {
         return (this.startPage - 1) * this.pageSize;
     }
 
@@ -65,29 +66,27 @@ public class Page<T> {
      */
     public Integer getTotalPage() {
 
-        return (this.totalRecord + this.pageSize - 1) / this.pageSize;
+       return  (this.totalRecord + this.pageSize - 1) / this.pageSize;
     }
 
 
-    public int getPreviousPage() {
+    public Integer getPreviousPage() {
         //如果上一页小于1，则说明当前页码已经是第一页了
         if (this.startPage - 1 < 1) {
-            this.previousPage = 1;
+           return 1;
         } else {
-            this.previousPage = this.startPage - 1;
+            return this.startPage - 1;
         }
-        return previousPage;
     }
 
 
-    public int getNextPage() {
-        //如果下一页大于总数页，则说明当前页码已经是最后一页了
-        if (this.startPage + 1 >= this.totalPage) {
-            this.nextPage = this.totalPage;
+    public Integer getNextPage() {
+        //如果当前页等于总页数，则说明当前页码已经是最后一页了,那么下一页也是当前页
+        if (this.startPage.equals(this.totalPage)) {
+           return this.startPage;
         } else {
-            this.nextPage = this.startPage + 1;
+            return this.startPage + 1;
         }
-        return nextPage;
     }
 
 

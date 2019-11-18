@@ -13,7 +13,6 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
@@ -49,7 +48,6 @@ public class RequireLoginMethodImpl implements HandlerInterceptor {
                 Long userToken = Long.parseLong(token.toString());
                 String jsonStr = (String) redisUtils.get(CommonContants.LOGIN_NAME_SPACE + userToken);
                 if (!ObjectUtils.isEmpty(jsonStr)) {
-
 
 
                     UserVo userVo = JSONObject.parseObject(jsonStr, UserVo.class);

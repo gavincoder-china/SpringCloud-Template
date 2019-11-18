@@ -87,8 +87,6 @@ public class webConfiguration implements WebMvcConfigurer {
 
     interceptorRegistry.addInterceptor(requireLoginMethod());
 
-
-
   }
 
   @Override
